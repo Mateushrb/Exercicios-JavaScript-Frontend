@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+</head>
+<body>
+    <h1>Tabuada de um número</h1>
+    <div>
+        <input type="text" id="caixaTexto">
+        <input type="button" value="Calcular" id="btnCalcular">
+    </div>
+    <div id="resultado">
+
+    </div>
+    <script type="text/javascript">
+        const caixaTexto = document.querySelector("#caixaTexto");
+        const btnCalcular = document.querySelector("#btnCalcular");
+        const resultado = document.getElementById("resultado");
+
+        function principal() {
+            let numero = parseInt(caixaTexto.value);
+            resultado.innerHTML = `<h2>A tabuada de ${numero} é:</h2>`;
+            for (let i = 1; i<=10; i++) {
+                let calc = i*numero;
+                resultado.innerHTML += `<p>${numero}x${i} = ${calc}</p>`;
+            }
+        }
+        btnCalcular.addEventListener("click", function(e) {
+            principal();
+        })
+        caixaTexto.addEventListener('keydown', (e) => {
+            if (e.keyCode == 13) {
+                principal();
+                e.preventDefault;
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+</head>
+<body>
+    <h1>Lista de nomes</h1>
+    <p>Busque um nome na lista</p>
+    <div>
+        <input type="text" id="caixaTexto" placeholder="escreva um nome">
+        <input type="button" value="buscar" id="btnBuscar">
+    </div>
+    <div>
+        <ol id="nomes" style="list-style-type:disc">
+            <li>Mateus</li>
+            <li>Maria</li>
+            <li>Eduarda</li>
+            <li>Antonio</li>
+            <li>Jorcelene</li>
+            <li>Isabel</li>
+            <li>Valmir</li>
+            <li>Adriana</li>
+            <li>Gabriel</li>
+            <li>Brazilino</li>
+            <li>Mercedez</li>
+            <li>Vitor</li>
+        </ol>
+    </div>
+    <script type="text/javascript">
+        const caixaTexto = document.querySelector("#caixaTexto");
+        const btnBuscar = document.querySelector("#btnBuscar");
+        const nomes = document.querySelector("#nomes").children;
+
+        function principal() {
+            let nomeTeste = '';
+            for(let i = 0; i<nomes.length; i++) {
+                nomeTeste = nomes[i].textContent.toLowerCase();
+                if (nomeTeste.includes(caixaTexto.value.toLowerCase())) {
+                    nomes[i].style.fontWeight = "bold";
+                } else {
+                    nomes[i].style.fontWeight = "normal";
+                }
+            }
+        }
+        btnBuscar.addEventListener("click", ()=> {
+            principal();
+        })
+        caixaTexto.addEventListener("keydown", (e)=> {
+            if (e.keyCode == 13) {
+                principal();
+                e.preventDefault;
+            }
+        })
+
+    </script>
+</body>
+</html>
